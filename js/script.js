@@ -41,13 +41,14 @@ createApp({
             ],
 
             currentPosition: 0,
-
+            
         };
 
     },
 
+
     methods: {
-    // functions
+    // functions    
 
     showNext: function(){
         if(this.currentPosition < this.slides.length - 1){
@@ -70,7 +71,13 @@ createApp({
     },
 
     // /functions
-    }
+    },
+
+    created: function(){
+        setInterval(showNext, 2000)
+    },
+
 
 
 }).mount("#root");
+
