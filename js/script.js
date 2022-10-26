@@ -41,6 +41,8 @@ createApp({
             ],
 
             currentPosition: 0,
+
+            autoplay: setInterval(this.showNext, 2000),
             
         };
 
@@ -73,9 +75,9 @@ createApp({
     // /functions
     },
 
-    created: function(){
-        setInterval(showNext, 2000)
-    },
+    // created: function(){
+    //     const autoplay = ;
+    // },
 
 
 
