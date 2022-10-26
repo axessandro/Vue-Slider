@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Carosello News</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Slider</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="root">
+
+        <div class="container" >
+            <div class="slider-wrapper" tabindex="0">
+
+                <!-- MAIN ITEM -->
+                <div class="item">
+                    <img :src="slides[currentPosition].image" alt="slides[currentPosition].title"/>
+
+                    <div class="text">
+                        <h3>{{ slides[currentPosition].title}} </h3>
+                        <p>{{ slides[currentPosition].text}}</p>
+                    </div>
+                </div>
+                <!-- /MAIN ITEM -->
+
+                <!-- THUMBS -->
+                <div class="thumbs">
+                    <div class="prev" @click="showPrev"></div>
+                    <div class="next" @click="showNext"></div>
+
+                    <!-- thumb -->
+                    <div 
+                        class="thumb"
+                        v-for="(slide, index) in slides.length"
+                        :class="currentPosition === index ? 'active' : ''"
+                        @click="showClicked(index)"
+                    >
+                        <img :src="slides[index].image" alt="slides.title[currentPosition]"/>
+                    </div>
+                    <!-- /thumb -->
+                    
+                </div>
+                <!-- /THUMBS -->
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
