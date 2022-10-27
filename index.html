@@ -14,7 +14,12 @@
     <div id="root">
 
         <div class="container" >
-            <div class="slider-wrapper" tabindex="0">
+            <div 
+                class="slider-wrapper"
+                tabindex="0"
+                @mouseover="stopAutoplay"
+                @mouseleave="startAutoplay"
+                >
 
                 <!-- MAIN ITEM -->
                 <div class="item">

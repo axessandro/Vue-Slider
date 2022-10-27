@@ -41,9 +41,9 @@ createApp({
             ],
 
             currentPosition: 0,
+          
+            autoplay:null,
 
-            autoplay: setInterval(this.showNext, 2000),
-            
         };
 
     },
@@ -52,7 +52,7 @@ createApp({
     methods: {
     // functions    
 
-    showNext: function(){
+    showNext(){
         if(this.currentPosition < this.slides.length - 1){
             this.currentPosition++
         } else {
@@ -60,7 +60,7 @@ createApp({
         }
     },
 
-    showPrev: function(){
+    showPrev(){
         if(this.currentPosition > 0){
             this.currentPosition--;
         } else {
@@ -72,14 +72,23 @@ createApp({
         this.currentPosition = index;
     },
 
+    stopAutoplay(){
+        clearInterval(this.autoplay);
+        this.autoplay = null;
+    },
+
+    startAutoplay(){
+        if(this.autoplay === null){
+            this.autoplay = setInterval(() =>{this.showNext()}, 2000);
+        };
+    },
+
     // /functions
     },
 
-    // created: function(){
-    //     const autoplay = ;
-    // },
-
-
+    created(){
+        this.startAutoplay();
+    },
 
 }).mount("#root");
 
